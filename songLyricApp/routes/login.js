@@ -59,6 +59,7 @@ router.post('/logout', function(req, res, next) {
 router.post('/signup', async function(req, res, next) {
   try {
     let newUser = new User({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });

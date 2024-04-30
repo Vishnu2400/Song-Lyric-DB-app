@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Add New Lyric
+
+  form(action="/lyrics/add_lyric", method="POST")
+    label(for="title") Title:
+    input(type="text", name="title", required)
+
+    label(for="artist") Artist:
+    input(type="text", name="artist", required)
+
+    label(for="lyrics") Lyrics:
+    textarea(name="lyrics", rows="6", required)
+
+    input(type="submit", value="Add Lyric")

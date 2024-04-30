@@ -7,12 +7,11 @@ const lyricSchema = new Schema({
         required: true
     },
     artist: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'User', 
         required: true
     },
-    album: {
-        type: String
-    },
+    
     lyrics: {
         type: String,
         required: true

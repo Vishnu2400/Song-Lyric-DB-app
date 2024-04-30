@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Your Lyrics
+  if userLyrics.length
+    ul
+      each lyric in userLyrics
+        li
+          h2= lyric.title
+          p Artist: #{lyric.artist}
+          p= lyric.lyrics
+  else
+    p No lyrics available.

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Delete Lyric
+
+  p Are you sure you want to delete this lyric?
+
+  form(action=`/lyrics/delete_lyric/${lyric._id}`, method="POST")
+    input(type="submit", value="Delete")
