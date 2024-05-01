@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .lyric-container
+    h1= lyric.title
+    p.artist Artist: #{lyric.artist}
+
+    // Lyrics Display
+    .lyric-content
+      each line in lyric.lyrics.split('\n')
+        p= line
+
+    // Buttons
+    form(action=`/lyrics/${lyric._id}/edit`, method='GET')
+      button(type='submit') Edit
+    form(action=`/lyrics/${lyric._id}/delete`, method='POST')
+      input(type='hidden', name='_method', value='DELETE')
+      button(type='submit') Delete
+    button.btn.btn-secondary(type='button', onclick="window.location.href='/lyrics'", method="GET") Back to Lyrics

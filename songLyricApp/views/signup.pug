@@ -1,15 +1,16 @@
 extends layout
 
 block content
-  h1 Sign Up 
-  form(action="/signup", method="POST")
-    section 
-      label(for="name") Name 
-      input(type="text", name="name")
-    section 
-      label(for="email") Email 
-      input(type="email", name="email")
-    section 
-      label(for="password") Password 
-      input(type="password", name="password")
-    button(type="submit") Sign Up
+  .signup-container
+    h1.signup-header Sign Up 
+    form.signup-form(action="/signup", method="POST")
+      section.signup-section 
+        label.signup-label(for="name") Name 
+        input.signup-input(type="text", name="name")
+      section.signup-section 
+        label.signup-label(for="email") Email 
+        input.signup-input(type="email", name="email")
+      section.signup-section 
+        label.signup-label(for="password") Password 
+        input.signup-input(type="password", name="password")
+      button.btn-sign-up(type="submit") Sign Up

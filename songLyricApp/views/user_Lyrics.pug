@@ -2,12 +2,22 @@ extends layout
 
 block content
   h1 Your Lyrics
-  if userLyrics.length
+
+  // Display user's lyrics
+  if lyrics.length
     ul
-      each lyric in userLyrics
+      each lyric in lyrics
         li
           h2= lyric.title
           p Artist: #{lyric.artist}
-          p= lyric.lyrics
+          form(action=`/lyrics/${lyric._id}`, method='POST')
+            input(type='hidden', name='_method', value='DELETE')
+            button(type='submit') Delete
+          form(action=`/lyrics/${lyric._id}/edit`, method='GET')
+            button(type='submit') Edit
+          a(href=`/lyrics/${lyric._id}`, class='btn') View
   else
-    p No lyrics available.
+    p No lyrics found.
+
+  // Button to route to lyrics
+  a(href="/lyrics", class='btn') All Lyrics

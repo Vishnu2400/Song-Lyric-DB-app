@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .lyrics-container
+    h1 Lyrics
+
+    button.btn.btn-secondary(type='button', onclick="window.location.href='/users'", method="GET") Home
+    button.btn.btn-secondary(type='button', onclick=`window.location.href="/lyrics/new"`) Add New Lyric
+
+
+    // Display all lyrics
+    if lyrics.length
+      ul
+        each lyric in lyrics
+          li
+            .lyric-card
+              .lyric-content
+                h2= lyric.title
+                p Artist: #{lyric.artist}
+              .button-container
+                form(action=`/lyrics/${lyric._id}`, method='GET')
+                  button(type='submit' class='btn btn-secondary btn-view') View
+                form(action=`/lyrics/${lyric._id}/edit`, method='GET')
+                  button(type='submit' class='btn btn-secondary btn-edit') Edit
+                form(action=`/lyrics/${lyric._id}/delete`, method='POST')
+                  input(type='hidden', name='_method', value='DELETE')
+                  button(type='submit' class='btn btn-secondary btn-delete') Delete
+    else
+      p No lyrics found for this user.
+

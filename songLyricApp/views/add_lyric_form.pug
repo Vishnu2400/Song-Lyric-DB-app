@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .add-lyric-container
+    h1 Add New Lyric
+    
+    // Add new lyric form
+    form(action='/lyrics/new', method='POST')
+      input(type='text', name='title', placeholder='Title', required)
+      textarea(name='lyrics', placeholder='Write Lyrics', required)
+      button(type='submit') Add Lyric

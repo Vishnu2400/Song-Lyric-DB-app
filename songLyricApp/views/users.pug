@@ -1,8 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  form(action="/logout", method="post") 
-    button(type="submit") Sign out
-  hr 
-  pre= user
+  .user-container
+    form(action="/logout", method="post") 
+      button.btn-sign-out(type="submit") Sign out
+
+    pre Welcome to Song Lyric App, #{user.name}
+    hr 
+    
+    a.btn.btn-add-new(href="/lyrics/new") Add New Lyric
+    a.btn.btn-show(href="/lyrics") Show Lyrics
+    form(action="/user_lyrics", method="GET") 
+      input(type="hidden", name="user", value=user._id)
+      button.btn-show-my-lyrics(type="submit") Show My Lyrics

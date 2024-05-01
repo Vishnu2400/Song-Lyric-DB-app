@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .edit-lyric-container
+    h1 Edit Lyric
+    form(action=`/lyrics/${lyric._id}/edit`, method='POST')
+      input(type='hidden', name='_method', value='PUT')
+      label(for='title') Title:
+      input(type='text', name='title', id='title', value=lyric.title, required)
+      label(for='lyrics') Lyrics:
+      textarea(name='lyrics', id='lyrics', rows='4', required)= lyric.lyrics
+      button(type='submit') Update

@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .intro-section
+    h1.ITMD542-title ITMD542 Final Project
+    h1.lyric-app-title Song Lyric Application
+
+    p.intro-text
+      | This is a simple Song Lyric Application built with Node.js and Express.
+      | You can find songs Lyrics.
+
+    p.intro-text
+      | To get started, click the button below:
+      
+    a.btn.btn-primary(href='/login') Login to Apllication

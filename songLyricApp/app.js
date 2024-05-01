@@ -20,6 +20,8 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGOD
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
+var lyricRouter = require('./routes/lyrics');
+var userLyricsRouter = require('./routes/user_lyrics');
 
 var app = express();
 
@@ -41,7 +43,9 @@ app.use(passport.authenticate('session'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/', loginRouter);
+app.use('/', loginRouter); 
+app.use('/lyrics', lyricRouter);
+app.use('/user_lyrics', userLyricsRouter);
 
 
 // catch 404 and forward to error handler

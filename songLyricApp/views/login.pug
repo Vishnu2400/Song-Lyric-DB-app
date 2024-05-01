@@ -1,13 +1,14 @@
 extends layout
 
 block content
-  h1 Login 
-  form(action="/login/password", method="POST")
-    section 
-      label(for="email") Email 
-      input(type="email", name="email") 
-    section 
-      label(for="password") Password 
-      input(type="password", name="password")
-    button(type="submit") Sign In
-  a(href="/signup") Sign Up 
+  .login-container
+    h1.login-header Login 
+    form.login-form(action="/login/password", method="POST")
+      section.login-section 
+        label.login-label(for="email") Email 
+        input.login-input(type="email", name="email") 
+      section.login-section 
+        label.login-label(for="password") Password 
+        input.login-input(type="password", name="password")
+      button.btn-sign-in(type="submit") Sign In
+    a.btn-sign-up(href="/signup") Sign Up
